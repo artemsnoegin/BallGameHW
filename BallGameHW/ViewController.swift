@@ -13,6 +13,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
+        let ball = BallView(frame: view.frame)
+        ball.setUpBallColor(.systemRed)
+        view.addSubview(ball)
+        
     }
 
 
