@@ -7,19 +7,44 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ButtonDelegate {
+    
+    private let ball = BallView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
-        let ball = BallView(frame: view.frame)
-        ball.setUpBallColor(.systemRed)
+        ball.frame = view.frame
         view.addSubview(ball)
         
+        let buttons = ArrowButtons()
+        buttons.delegate = self
+        view.addSubview(buttons)
     }
+    
+    func getDirection(direction: ButtonDirection) {
+        guard let step = ball.ballSize else { return }
+            
+        UIView.animate(withDuration: 0.5, animations: {
+            switch direction {
+            case .up :
+                self.ball.center.y -= step
+                
 
-
+            case .left :
+                self.ball.center.x -= step
+                
+            case .down :
+                self.ball.center.y += step
+                
+            case .right :
+                self.ball.center.x += step
+                
+            }
+        })
+    }
+    
 }
 
