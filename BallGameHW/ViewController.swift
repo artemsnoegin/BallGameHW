@@ -14,14 +14,22 @@ class ViewController: UIViewController, ButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         
         ball.frame = view.frame
         view.addSubview(ball)
         
         let buttons = ArrowButtons()
         buttons.delegate = self
+        buttons.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttons)
+        
+        NSLayoutConstraint.activate([
+            buttons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            buttons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            buttons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+        
     }
     
     func getDirection(direction: ButtonDirection) {
