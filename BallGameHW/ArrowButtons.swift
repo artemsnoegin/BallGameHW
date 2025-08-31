@@ -26,6 +26,7 @@ class ArrowButtons: UIView {
         HStack.axis = .horizontal
         HStack.distribution = .equalSpacing
         
+<<<<<<< HEAD
         let VStack = UIStackView()
         VStack.axis = .vertical
         VStack.distribution = .equalSpacing
@@ -57,6 +58,32 @@ class ArrowButtons: UIView {
                 HStack.addArrangedSubview(button)
             } else {
                 VStack.insertArrangedSubview(button, at: 0)
+=======
+        HStack.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(HStack)
+        
+        NSLayoutConstraint.activate([
+            HStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            HStack.leadingAnchor.constraint(equalTo: centerXAnchor, constant: -152),
+            HStack.trailingAnchor.constraint(equalTo: centerXAnchor, constant: 152),
+        ])
+        
+        for direction in ButtonDirection.allCases {
+            let button = UIButton(type: .system)
+            button.setTitle(direction.rawValue, for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 80)
+            
+            if direction != ButtonDirection.up {
+                HStack.addArrangedSubview(button)
+            } else {
+                button.translatesAutoresizingMaskIntoConstraints = false
+                addSubview(button)
+                
+                NSLayoutConstraint.activate([
+                    button.centerXAnchor.constraint(equalTo: centerXAnchor),
+                    button.bottomAnchor.constraint(equalTo: HStack.topAnchor)
+                ])
+>>>>>>> develop
             }
             
             button.addTarget(self, action: #selector(sendDirection(_:)), for: .touchUpInside)
@@ -66,7 +93,11 @@ class ArrowButtons: UIView {
     @objc private func sendDirection(_ sender: UIButton) {
         guard let title = sender.currentTitle,
               let direction = ButtonDirection(rawValue: title) else { return }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> develop
         delegate?.getDirection(direction: direction)
     }
     

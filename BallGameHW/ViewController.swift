@@ -27,7 +27,12 @@ class ViewController: UIViewController, ButtonDelegate {
         NSLayoutConstraint.activate([
             buttons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             buttons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+<<<<<<< HEAD
             buttons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+=======
+            buttons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            buttons.heightAnchor.constraint(equalToConstant: 220)
+>>>>>>> develop
         ])
         
     }
@@ -39,7 +44,6 @@ class ViewController: UIViewController, ButtonDelegate {
             switch direction {
             case .up :
                 self.ball.center.y -= step
-                
 
             case .left :
                 self.ball.center.x -= step
@@ -49,7 +53,6 @@ class ViewController: UIViewController, ButtonDelegate {
                 
             case .right :
                 self.ball.center.x += step
-                
             }
         })
     }
