@@ -27,12 +27,8 @@ class ViewController: UIViewController, ButtonDelegate {
         NSLayoutConstraint.activate([
             buttons.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             buttons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-<<<<<<< HEAD
-            buttons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
-=======
             buttons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             buttons.heightAnchor.constraint(equalToConstant: 220)
->>>>>>> develop
         ])
         
     }
