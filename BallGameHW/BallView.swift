@@ -9,17 +9,15 @@ import UIKit
 
 class BallView: UIView {
     
-    var ballSize: CGFloat?
+    var ballSize: CGFloat = 0
     
     override func didMoveToSuperview() {
         guard let superview = superview else { return }
 
         ballSize = superview.frame.width / 4
         
-        if let ballSize = ballSize {
-            frame.size = CGSize(width: ballSize, height: ballSize)
-            layer.cornerRadius = ballSize / 2
-        }
+        frame.size = CGSize(width: ballSize, height: ballSize)
+        layer.cornerRadius = ballSize / 2
         
         center.y = superview.frame.height / 3
         center.x = superview.frame.width / 2

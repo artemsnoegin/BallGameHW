@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController, ButtonDelegate {
     
     private let ball = BallView()
+    private let buttons = ArrowButtons()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,6 @@ class ViewController: UIViewController, ButtonDelegate {
         ball.frame = view.frame
         view.addSubview(ball)
         
-        let buttons = ArrowButtons()
         buttons.delegate = self
         buttons.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(buttons)
@@ -34,21 +34,44 @@ class ViewController: UIViewController, ButtonDelegate {
     }
     
     func getDirection(direction: ButtonDirection) {
-        guard let step = ball.ballSize else { return }
+        let step: CGFloat = self.ball.ballSize
+        
+        var destination: CGFloat = 0
+        
+        var boarder: CGFloat = 0
             
         UIView.animate(withDuration: 0.5, animations: {
             switch direction {
             case .up :
-                self.ball.center.y -= step
+                destination = self.ball.center.y - step
+                boarder = self.view.safeAreaInsets.top + self.ball.ballSize / 2
+                if destination > boarder {
+                    self.ball.center.y -= step
+                }
 
             case .left :
-                self.ball.center.x -= step
+                destination = self.ball.center.x - step
+                boarder = self.ball.ballSize / 2
+                
+                if destination > boarder {
+                    self.ball.center.x -= step
+                }
                 
             case .down :
-                self.ball.center.y += step
+                destination = self.ball.center.y + step
+                boarder = self.view.frame.height - self.view.safeAreaInsets.bottom - self.buttons.frame.height - self.ball.ballSize / 2
+                
+                if destination < boarder {
+                    self.ball.center.y = destination
+                }
                 
             case .right :
-                self.ball.center.x += step
+                destination = self.ball.center.x + step
+                boarder = self.view.frame.width - self.ball.ballSize / 2
+                
+                if destination < boarder {
+                    self.ball.center.x += step
+                }
             }
         })
     }
