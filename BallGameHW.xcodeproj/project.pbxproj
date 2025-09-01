@@ -14,7 +14,7 @@
 		D9259F1A2E5F0E3800E07CA3 /* Exceptions for "BallGameHW" folder in "BallGameHW" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = D9259F072E5F0E3700E07CA3 /* BallGameHW */;
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6N5BVY2VGG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BallGameHW/Info.plist;
+				INFOPLIST_FILE = BallGameHW/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
@@ -174,7 +174,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6N5BVY2VGG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BallGameHW/Info.plist;
+				INFOPLIST_FILE = BallGameHW/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;

@@ -9,7 +9,14 @@ import UIKit
 
 class ArrowButtons: UIView {
     
-    weak var delegate: ButtonDelegate?
+    enum ButtonDirection: String, CaseIterable {
+        case up = "⬆️"
+        case left = "⬅️"
+        case down = "⬇️"
+        case right = "➡️"
+    }
+    
+    weak var delegate: DirectionDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +68,7 @@ class ArrowButtons: UIView {
         guard let title = sender.currentTitle,
               let direction = ButtonDirection(rawValue: title) else { return }
         
-        delegate?.getDirection(direction: direction)
+        delegate?.getDirectionAndMoveBall(direction: direction)
     }
     
 }
