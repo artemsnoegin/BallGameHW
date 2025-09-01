@@ -46,6 +46,7 @@ class ArrowButtons: UIView {
             let button = UIButton(type: .system)
             button.setTitle(direction.rawValue, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 80)
+            button.isExclusiveTouch = true
             
             if direction != ButtonDirection.up {
                 HStack.addArrangedSubview(button)
