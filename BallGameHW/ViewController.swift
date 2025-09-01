@@ -62,7 +62,7 @@ class ViewController: UIViewController, DirectionDelegate {
         containerView.addSubview(ballView)
     }
     
-    func getDirectionAndMoveBall(direction: ArrowButtons.ButtonDirection) {
+    func getDirectionAndMoveBall(direction: ArrowButtons.ButtonDirection, sender: UIButton) {
         let ballRadius = ballSize / 2
         
         let topBoarder = ballRadius
@@ -73,8 +73,10 @@ class ViewController: UIViewController, DirectionDelegate {
         let step: CGFloat = self.ballSize
         
         var destination: CGFloat = 0
+        
+        sender.isEnabled = false
 
-        UIView.animateKeyframes(withDuration: 0.7, delay: 0) {
+        UIView.animateKeyframes(withDuration: 0.4, delay: 0, animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
                 switch direction {
@@ -109,6 +111,8 @@ class ViewController: UIViewController, DirectionDelegate {
                 self.ballView.transform = .identity
             }
             
+        }) { _ in
+            sender.isEnabled = true
         }
     }
     

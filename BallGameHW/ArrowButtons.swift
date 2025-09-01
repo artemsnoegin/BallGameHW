@@ -68,7 +68,7 @@ class ArrowButtons: UIView {
         guard let title = sender.currentTitle,
               let direction = ButtonDirection(rawValue: title) else { return }
         
-        delegate?.getDirectionAndMoveBall(direction: direction)
+        delegate?.getDirectionAndMoveBall(direction: direction, sender: sender)
     }
     
 }

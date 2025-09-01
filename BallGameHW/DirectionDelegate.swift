@@ -9,6 +9,6 @@ import UIKit
 
 protocol DirectionDelegate: AnyObject {
     
-    func getDirectionAndMoveBall(direction: ArrowButtons.ButtonDirection)
+    func getDirectionAndMoveBall(direction: ArrowButtons.ButtonDirection, sender: UIButton)
     
 }
